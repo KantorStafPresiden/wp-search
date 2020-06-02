@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Kantor Staf Presiden">
+    <meta name="keywords" content="ksp, kantor staf presiden, pencarian, presiden">
+    <meta name="author" content="Arief Karfianto <arief.karfianto@ksp.go.id>">
+
+    <title>{{template "title" .}}</title>
+
+    <!-- Favicons from http://realfavicongenerator.net -->
+
+    <link rel="icon" type="image/png" href="/static/favicons/fav.ico" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/static/favicons/mstile-144x144.png">
+    {{CSS "static/css/bootstrap.min.css"}}
+    {{CSS "static/css/all.css"}}
+    {{TTF "static/webfonts/fa-solid-900.ttf"}}
+    {{WOFF "static/webfonts/fa-solid-900.woff"}}
+    {{WOFF2 "static/webfonts/fa-solid-900.woff2"}}
+
+    <link rel="stylesheet" href="/static/css/font-opensans.css">
+    {{CSS "static/css/dataTables.bootstrap4.min.css"}}
+    {{CSS "static/css/global.css"}}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {{template "head" .}}
+</head>
+<body>
+<div class="loader" id="loader"></div>
+<nav class="navbar navbar-expand-sm py-0 fixed-top navbar-light bg-danger navbar-right">
+    <a class="navbar-brand" href="/"><img src="/static/logo/header.png"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        {{template "header" .}}
+    </div>
+</nav>
+
+<div class="container-fluid mt-5">
+    <div class="row" id="wrapper">
+        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+            {{template "content" .}}
+            <input id="BaseURI" type="hidden" value="{{.BaseURI}}">
+            <div id="flash-container" class="text-center mt-2">
+                {{range $fm := .flashes}}
+                    <div id="flash-message" class="alert alert-box-fixed0 alert-box-fixed alert-dismissible {{.Class}}"
+                         style="padding-top: .15rem; padding-bottom: .15rem;" role="alert">
+                        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                        <span class="fa fa-info-circle"></span> {{.Message}}</div>
+                    <!-- <div data-alert id="flash-message" class="alert-box-fixed0 alert-box-fixed {{.Class}}">{{.Message}}<a href="#" class="close">&times;</a></div> -->
+                {{end}}
+            </div>
+        </main>
+    </div>
+</div>
+
+{{JS "static/js/jquery-3.3.1.min.js"}}
+{{JS "static/js/bootstrap.min.js"}}
+{{JS "static/js/global.js"}}
+{{JS "static/js/jquery.dataTables.min.js"}}
+{{JS "static/js/dataTables.bootstrap4.min.js"}}
+{{JS "static/js/nanobar.min.js"}}
+
+<script type="text/javascript">
+    $(".focus").focus();
+</script>
+
+<script type="text/javascript">
+    var options = {
+        classname: 'loader'
+    };
+
+    var nanobar = new Nanobar(options);
+
+    // move bar
+    nanobar.go(25);
+    nanobar.go(50);
+    nanobar.go(75);
+    nanobar.go(100);
+
+</script>
+<script type="text/javascript">
+    $('.pull-down').each(function () {
+        var $this = $(this);
+        $this.css('margin-top', $this.parent().height() - $this.height())
+    });
+</script>
+
+{{template "foot" .}}
+
+</body>
+</html>

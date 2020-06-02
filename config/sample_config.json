@@ -10,6 +10,18 @@
 			"Parameter": "?parseTime=true"
 		}
 	},
+	"Email": {
+		"Username": "",
+		"Password": "",
+		"Hostname": "",
+		"Port": 25,
+		"From": ""
+	},
+	"Recaptcha": {
+		"Enabled": false,
+		"Secret": "",
+		"SiteKey": ""
+	},
 	"Server": {
 		"Hostname": "",
 		"UseHTTP": true,
@@ -18,6 +30,17 @@
 		"HTTPSPort": 8443,
 		"CertFile": "server.crt",
 		"KeyFile": "server.key"
+	},
+	"Session": {
+		"SecretKey": "YourSecretKey",
+		"Name": "sess",
+		"Options": {
+			"Path": "/",
+			"Domain": "",
+			"MaxAge": 28800,
+			"Secure": false,
+			"HttpOnly": true
+		}
 	},
 	"Template": {
 		"Root": "base",

@@ -2,25 +2,13 @@
 	"Database": {
 		"Type": "MySQL",
 		"MySQL": {
-			"Username": "root",
-			"Password": "root",
-			"Name": "kspv2",
+			"Username": "",
+			"Password": "",
+			"Name": "",
 			"Hostname": "127.0.0.1",
 			"Port": 3306,
 			"Parameter": "?parseTime=true"
 		}
-	},
-	"Email": {
-		"Username": "",
-		"Password": "",
-		"Hostname": "",
-		"Port": 25,
-		"From": ""
-	},
-	"Recaptcha": {
-		"Enabled": false,
-		"Secret": "",
-		"SiteKey": ""
 	},
 	"Server": {
 		"Hostname": "",
@@ -30,17 +18,6 @@
 		"HTTPSPort": 8443,
 		"CertFile": "server.crt",
 		"KeyFile": "server.key"
-	},
-	"Session": {
-		"SecretKey": "YourSecretKey",
-		"Name": "sess",
-		"Options": {
-			"Path": "/",
-			"Domain": "",
-			"MaxAge": 28800,
-			"Secure": false,
-			"HttpOnly": true
-		}
 	},
 	"Template": {
 		"Root": "base",
